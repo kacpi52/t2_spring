@@ -1,0 +1,17 @@
+# Ignore Maven build dirs
+target/
+# IDEs
+.idea/
+.vscode/
+*.iml
+# Git
+.git
+.gitignore
+# OS
+.DS_Store
+# Docker
+.dockerignore
+Dockerfile
+# Tests and docs (optional)
+**/test/
+**/*.md
