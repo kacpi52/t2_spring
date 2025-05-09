@@ -1,5 +1,3 @@
-# Ignore Maven build dirs
-target/
 # IDEs
 .idea/
 .vscode/
