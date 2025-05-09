@@ -43,7 +43,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+      - name: Create target directory
+        run: mkdir -p target
       - name: Download JAR artifact
         uses: actions/download-artifact@v4
         with:
