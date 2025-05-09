@@ -60,16 +60,12 @@ jobs:
         uses: aquasecurity/trivy-action@0.28.0
         with:
           image-ref: 'kacpi52/task2_spring:${{ env.SHORT_SHA }}'
-          format: 'table'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
-      - name: Show Trivy scan summary in console
-        if: always()
-        run: |
-          echo "=== Trivy SARIF summary ==="
-          cat "${{ github.event.repository.name }}-image-scan-results.sarif" | jq '.runs[].results[] | {ruleId, message: .message.text, severity: .properties.severity}'
-
+     
       - name: Push image to DockerHub
         run: docker push kacpi52/task2_spring:${{ env.SHORT_SHA }}
