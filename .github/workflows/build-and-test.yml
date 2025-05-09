@@ -42,7 +42,8 @@ jobs:
       - name: Extract short SHA
         id: vars
         run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
-
+      - name: check files
+        run: ls -l
       - name: Build and push server image
         uses: docker/build-push-action@v6
         with:
